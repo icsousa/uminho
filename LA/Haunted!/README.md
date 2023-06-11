@@ -27,7 +27,7 @@
 
 2- Navegue até o diretório do projeto:
 
-    cd nome-do-diretorio
+    cd code
 
 3- Para compilar e iniciar o jogo, basta:
 
