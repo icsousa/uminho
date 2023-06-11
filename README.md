@@ -4,4 +4,4 @@
 
 ✅ Todo o tipo de projetos que realizarei durante o meu trajeto académico iram ser guardados aqui!
 
-<sup>⚠️ Isto foi feito por um estudante!</sup>
+<sup>⚠️ Isto foi feito por um **estudante**!</sup>
