@@ -1,7 +1,7 @@
 # HAUNTED!
 <sub>Não tenciono alterar, pois foi avaliado desta maneira!</sub>
 
-✅ Este é um projeto desenvolvido para a cadeira de Laboratórios de Algoritmia (LA), normalmente realizado em grupo. No entanto, devido a circunstâncias excepcionais, este projeto foi realizado individualmente pelo autor, por esses motivos é que o projeto apresenta alguns *bugs*.
+✅ Este é um projeto desenvolvido para a cadeira de Laboratórios de Algoritmia (LA), normalmente realizado em grupo. No entanto, devido a circunstâncias excepcionais, este projeto foi realizado apenas por mim, por esses motivos é que o projeto apresenta alguns *bugs*.
 
 ## Descrição do Projeto
 
