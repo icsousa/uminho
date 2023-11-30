@@ -1,3 +1,3 @@
 # Progamação Funcional
 
-✅ Neste *repository* estão apenas as fichas das aulas teórico-práticas.
+✅ This *repository* contains only the work sheets from the theoretical-practical classes.
