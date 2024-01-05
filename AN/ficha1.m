@@ -126,12 +126,3 @@ x = 15;
 x_fl = round (x);
 
 majorante10 = abs(x - (x + eps(x_fl)));
-
-
-
-
-
-
-
-
-
