@@ -1,0 +1,156 @@
+@startuml diagram
+skinparam classAttributeIconSize 0
+
+class PlanoPremiumTop extends PlanoSubscricao {
+    + pontosPorReproducao(Utilizador u) : int
+}
+
+class Playlist {
+    - nome : String
+    - musicas : List<Musica>
+    - publica : boolean
+    - aleatoria : boolean
+    + isPublica() : boolean
+    + isAleatoria() : boolean
+    + getNome() : String
+    + getMusicas() : List<Musica>
+}
+
+class Utilizador {
+    - nome : String
+    - email : String
+    - morada : String
+    - pontos : int
+    - plano : PlanoSubscricao
+    - biblioteca : Biblioteca
+    - playlists : List<Playlist>
+    + getNome() : String
+    + getPlano() : PlanoSubscricao
+    + getMorada() : String
+    + reproduzirMusica(Musica m) : void
+    + getPontos() : int
+    + getEmail() : String
+    + getPlaylists() : List<Playlist>
+    + getBiblioteca() : Biblioteca
+    + setPlano(PlanoSubscricao novoPlano) : void
+    + inicializarPlaylistAleatoria(List<Musica> catalogo) : void
+    + adicionarAlbumABiblioteca(Album album) : void
+    + adicionaPlaylist(Playlist playlist) : void
+}
+
+class MusicaExplicita extends Musica {
+}
+
+class PlanoPremiumBase extends PlanoSubscricao {
+    + pontosPorReproducao(Utilizador u) : int
+}
+
+class Biblioteca {
+    - albuns : List<Album>
+    - musicas : List<Musica>
+    + getAlbuns() : List<Album>
+    + getMusicas() : List<Musica>
+    + adicionarAlbum(Album a) : void
+}
+
+class PlanoSubscricao {
+    + pontosPorReproducao(Utilizador u) : int
+}
+
+class Album {
+    - titulo : String
+    - autor : String
+    - ano : int
+    - musicas : List<Musica>
+    + getTitulo() : String
+    + getAutor() : String
+    + getAno() : int
+    + getMusicas() : List<Musica>
+}
+
+class Musica {
+    - titulo : String
+    - autor : String
+    - duracao : int
+    - genero : String
+    + getTitulo() : String
+    + getAutor() : String
+    + getDuracao() : int
+    + getGenero() : String
+}
+
+class PlanoFree extends PlanoSubscricao {
+    + pontosPorReproducao(Utilizador u) : int
+}
+
+class SpotifumController {
+    - utilizadores : Map<String, Utilizador>
+    - musicas : List<Musica>
+    - albuns : List<Album>
+    - playlists : List<Playlist>
+    + musicaMaisReproduzida() : Optional
+    + interpreteMaisEscutado() : Optional<String>
+    + utilizadorMaisAtivo() : Optional<Utilizador>
+    + utilizadorComMaisPontos() : Optional<Utilizador>
+    + generoMaisReproduzido() : Optional<String>
+    + contarPlaylistsPublicas() : long
+    + utilizadorComMaisPlaylists() : Optional<String>
+    + adicionarMusica(Musica m) : void
+    + adicionarUtilizador(Utilizador u) : void
+    + getUtilizador(String email) : Optional<Utilizador>
+    + getMusicas() : List<Musica>
+    + getPlaylists() : List<Playlist>
+    + adicionarPlaylist(Playlist p) : void
+    + getAlbuns() : List<Album>
+}
+
+class Menu {
+    - controller : SpotifumController
+    - sc : Scanner
+    - utilizadorAtual : Utilizador
+    - login() : void
+    - criarUtilizador() : void
+    - menuUtilizador() : void
+    - criarMusica() : void
+    - criarAlbum() : void
+    - reproduzirAlbumGlobal() : void
+    - reproduzirMusica() : void
+    - reproduzirAleatoria() : void
+    - menuBiblioteca() : void
+    - menuPlaylists() : void
+    - mostrarSuasPlaylists() : void
+    - mostrarPlaylistsPublicas() : void
+    - criarPlaylist() : void
+    - gerarPlaylistAutomatica() : void
+    - reproduzirPlaylist() : void
+    - perfilUtilizador() : void
+    - menuAtualizarPlano() : void
+    - menuEstatistica() : void
+    - reproduzirComControlo(List<Musica> lista) : void
+    - limparConsola() : void
+    + iniciar() : void
+    
+}
+
+class Serializer {
+    + save(Object obj, String filename) : void
+    + load(String filename) : Object
+}
+
+PlanoSubscricao <|-- PlanoFree
+PlanoSubscricao <|-- PlanoPremiumBase
+PlanoSubscricao <|-- PlanoPremiumTop
+Musica <|-- MusicaExplicita
+
+Utilizador --> PlanoSubscricao
+Utilizador --> Biblioteca
+Utilizador --> Playlist
+Biblioteca --> Album
+Biblioteca --> Musica
+Album --> Musica
+Playlist --> Musica
+SpotifumController --> Utilizador
+SpotifumController --> Musica
+Menu --> SpotifumController
+
+@enduml
